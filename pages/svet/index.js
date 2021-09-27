@@ -30,7 +30,7 @@ export default function Home({ posts }) {
     }
   }, [posts]);
 
-  console.log(posts);
+  
   return (
     <div>
       <Toolbar />
