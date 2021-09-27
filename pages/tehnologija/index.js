@@ -1,18 +1,19 @@
 import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
-import styles from "../styles/Home.module.css";
-import { Toolbar } from "../components/toolbar";
+import styles from "../../styles/Home.module.css";
+import { Toolbar } from "../../components/toolbar";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Home({ posts }) {
+
   const router = useRouter();
   const [mappedPosts, setMappedPosts] = useState([]);
 
   useEffect(() => {
     if (posts.length) {
       const imgBuilder = imageUrlBuilder({
-        projectId: "jf66xf0z",
+        projectId: "5kdvqmcs",
         dataset: "production",
       });
 
@@ -35,7 +36,7 @@ export default function Home({ posts }) {
       <Toolbar />
 
       <div className={styles.main}>
-        <h1>Welcome To My Blog home</h1>
+        <h1>Welcome To My Blog Tehnologija</h1>
 
         <h3>Recent Posts:</h3>
 
@@ -43,7 +44,7 @@ export default function Home({ posts }) {
           {mappedPosts.length ? (
             mappedPosts.map((p, index) => (
               <div
-                onClick={() => router.push(`/post/${p.slug.current}`)}
+                onClick={() => router.push(`tehnologija/post/${p.slug.current}`)}
                 key={index}
                 className={styles.post}
               >
@@ -62,7 +63,7 @@ export default function Home({ posts }) {
 
 export const getServerSideProps = async (pageContext) => {
   const query = encodeURIComponent('*[ _type == "post" ]');
-  const url = `https://jf66xf0z.api.sanity.io/v1/data/query/production?query=${query}`;
+  const url = `https://5kdvqmcs.api.sanity.io/v1/data/query/production?query=${query}`;
   const result = await fetch(url).then((res) => res.json());
 
   if (!result.result || !result.result.length) {
