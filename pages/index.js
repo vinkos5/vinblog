@@ -35,7 +35,7 @@ export default function Home({ posts }) {
       <Toolbar />
 
       <div className={styles.main}>
-        <h1>Welcome To My Blog home</h1>
+        <h1>Dobrodošli na mojem blogu</h1>
 
         <h3>Recent Posts:</h3>
 
